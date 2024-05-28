@@ -73,8 +73,11 @@ func (p *MultiPrinter) getString() string {
 
 		s = strings.Trim(s, "\n\r")
 		buffer.WriteString(s)
-		buffer.WriteString("\n")
+
+		// To achieve a more pleasing display, use two newline characters.
+		buffer.WriteString("\n\n")
 	}
+
 	return buffer.String()
 }
 
