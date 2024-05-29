@@ -57,12 +57,8 @@ func (p *MultiPrinter) getString() string {
 	var buffer bytes.Buffer
 	for _, b := range p.buffers {
 		s := b.String()
-
-		// Calculate the newline character amounts.
-		trimedRight := strings.TrimRight(s, "\n")
-		newlines := len(s) - len(trimedRight)
-
 		s = strings.Trim(s, "\n")
+
 		parts := strings.Split(s, "\r") // only get the last override
 		s = parts[len(parts)-1]
 
@@ -78,8 +74,8 @@ func (p *MultiPrinter) getString() string {
 		s = strings.Trim(s, "\n\r")
 		buffer.WriteString(s)
 
-		// To achieve a more pleasing display, use the original amount of newline characters.
-		buffer.WriteString(strings.Repeat("\n", newlines))
+		// To achieve a more pleasing display, use two newline characters.
+		buffer.WriteString("\n\n")
 	}
 
 	return buffer.String()
