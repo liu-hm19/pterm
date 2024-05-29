@@ -1,12 +1,13 @@
 package pterm
 
 import (
-	"atomicgo.dev/schedule"
 	"bytes"
 	"io"
 	"os"
 	"strings"
 	"time"
+
+	"atomicgo.dev/schedule"
 )
 
 var DefaultMultiPrinter = MultiPrinter{
@@ -63,6 +64,11 @@ func (p *MultiPrinter) getString() string {
 
 		// check if s is empty, if so get one part before, repeat until not empty
 		for s == "" {
+			// If length of parts is less than or equivalent to 1, we should break the loop,
+			// otherwise the program will panic later.
+			if len(parts) <= 1 {
+				break
+			}
 			parts = parts[:len(parts)-1]
 			s = parts[len(parts)-1]
 		}
