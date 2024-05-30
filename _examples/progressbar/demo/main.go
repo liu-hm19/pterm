@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
 // Slice of strings representing names of pseudo applications to be downloaded.

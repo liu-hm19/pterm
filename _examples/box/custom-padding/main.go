@@ -1,6 +1,6 @@
 package main
 
-import "github.com/pterm/pterm"
+import "github.com/liu-hm19/pterm"
 
 func main() {
 	// Create a default box with custom padding options and print "Hello, World!" inside it.

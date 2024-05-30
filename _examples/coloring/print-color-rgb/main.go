@@ -1,6 +1,6 @@
 package main
 
-import "github.com/pterm/pterm"
+import "github.com/liu-hm19/pterm"
 
 func main() {
 	// Create a new RGB color with values 178, 44, 199.

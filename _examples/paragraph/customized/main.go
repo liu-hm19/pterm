@@ -1,6 +1,6 @@
 package main
 
-import "github.com/pterm/pterm"
+import "github.com/liu-hm19/pterm"
 
 func main() {
 	// Define a long text to be printed as a paragraph.

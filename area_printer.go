@@ -6,7 +6,7 @@ import (
 
 	"atomicgo.dev/cursor"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
 // DefaultArea is the default area printer.
@@ -50,7 +50,6 @@ func (p AreaPrinter) WithCenter(b ...bool) *AreaPrinter {
 
 // SetWriter sets the writer for the AreaPrinter.
 func (p *AreaPrinter) SetWriter(writer io.Writer) {
-
 }
 
 // Update overwrites the content of the AreaPrinter.

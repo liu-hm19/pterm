@@ -1,6 +1,6 @@
 package main
 
-import "github.com/pterm/pterm"
+import "github.com/liu-hm19/pterm"
 
 func main() {
 	// Define a primary style with light cyan foreground, gray background, and bold text

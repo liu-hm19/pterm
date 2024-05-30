@@ -1,14 +1,13 @@
 package pterm
 
 import (
-	"fmt"
 	"strings"
 
 	"atomicgo.dev/cursor"
 	"atomicgo.dev/keyboard"
 	"atomicgo.dev/keyboard/keys"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
 // DefaultInteractiveConfirm is the default InteractiveConfirm printer.
@@ -125,9 +124,6 @@ func (p InteractiveConfirmPrinter) Show(text ...string) (bool, error) {
 	err := keyboard.Listen(func(keyInfo keys.Key) (stop bool, err error) {
 		key := keyInfo.Code
 		char := strings.ToLower(keyInfo.String())
-		if err != nil {
-			return false, fmt.Errorf("failed to get key: %w", err)
-		}
 
 		switch key {
 		case keys.RuneKey:

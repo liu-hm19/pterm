@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/pterm/pterm"
-	"github.com/pterm/pterm/putils"
+	"github.com/liu-hm19/pterm"
+	"github.com/liu-hm19/pterm/putils"
 )
 
 func main() {
 	// Define the text to be rendered
-	var text = "PTerm"
+	text := "PTerm"
 
 	// Convert the text into a format suitable for PTerm
-	var letters = putils.LettersFromString(text)
+	letters := putils.LettersFromString(text)
 
 	// Render the text using PTerm's default big text style
 	pterm.DefaultBigText.WithLetters(letters).Render()

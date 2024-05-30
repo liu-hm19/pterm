@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
 type Example struct {
@@ -90,9 +90,9 @@ func main() {
 			putilsReadme += fmt.Sprintf("```go\n%s\n```\n", strings.Join(goDocOutputFiltered, "\n"))
 
 			pterm.Info.Println("Writing './putils/README.md'")
-			os.WriteFile("./putils/README.md", []byte(putilsReadme), 0600)
+			os.WriteFile("./putils/README.md", []byte(putilsReadme), 0o600)
 			pterm.Info.Println("Writing './docs/docs/putils.md'")
-			os.WriteFile("./docs/docs/putils.md", []byte(putilsReadme), 0600)
+			os.WriteFile("./docs/docs/putils.md", []byte(putilsReadme), 0o600)
 		})
 
 		var allPrinters []string
@@ -119,13 +119,13 @@ func main() {
 				// the table should contain 5 columns. Each cell is a feature.
 				// Make multiple rows, if there are more than 4 features.
 				// A link to the examples should be included in every cell.
-				// Format: "[Example](https://github.com/pterm/pterm/tree/master/_examples/FEATURE)"
+				// Format: "[Example](https://github.com/liu-hm19/pterm/tree/master/_examples/FEATURE)"
 				if i%5 == 0 {
 					tableContent += "| "
 				}
 				name := strings.ToUpper(string(feature[0])) + feature[1:]
 				name = strings.ReplaceAll(name, "_", " ")
-				tableContent += fmt.Sprintf("%s <br/> [(Examples)](https://github.com/pterm/pterm/tree/master/_examples/%s) |", name, feature)
+				tableContent += fmt.Sprintf("%s <br/> [(Examples)](https://github.com/liu-hm19/pterm/tree/master/_examples/%s) |", name, feature)
 				if (i+1)%5 == 0 {
 					tableContent += "\n"
 				}
@@ -144,7 +144,7 @@ func main() {
 			readmeString = writeBetween("printers", readmeString, "\n"+tableContent+"\n")
 
 			// write readme
-			os.WriteFile("./README.md", []byte(readmeString), 0600)
+			os.WriteFile("./README.md", []byte(readmeString), 0o600)
 		})
 
 		do("Write printers to website", currentLevel, func(currentLevel int) {
@@ -152,16 +152,16 @@ func main() {
 			websiteIndex, _ := os.ReadFile("./docs/index.html")
 			websiteIndexString := string(websiteIndex)
 
-			// Write as li elements, which contain a link to the example. (https://github.com/pterm/pterm/tree/master/_examples/{name})
+			// Write as li elements, which contain a link to the example. (https://github.com/liu-hm19/pterm/tree/master/_examples/{name})
 			var links []string
 			for _, printer := range allPrinters {
-				links = append(links, fmt.Sprintf(`<li><a href="https://github.com/pterm/pterm/tree/master/_examples/%s">%s</a></li>`, printer, printer))
+				links = append(links, fmt.Sprintf(`<li><a href="https://github.com/liu-hm19/pterm/tree/master/_examples/%s">%s</a></li>`, printer, printer))
 			}
 
 			// Replace placeholder with li elements.
 			websiteIndexString = writeBetween("printers", websiteIndexString, "\n"+strings.Join(links, "\n")+"\n")
 
-			os.WriteFile("./docs/index.html", []byte(websiteIndexString), 0600)
+			os.WriteFile("./docs/index.html", []byte(websiteIndexString), 0o600)
 		})
 
 		var readmeExamples string
@@ -205,7 +205,7 @@ func main() {
 			examplesReadme, _ := os.ReadFile("./_examples/README.md")
 			examplesReadmeContent := string(examplesReadme)
 			examplesReadmeContent = writeBetween("examples", examplesReadmeContent, "\n"+readmeExamples+"\n")
-			os.WriteFile("./_examples/README.md", []byte(examplesReadmeContent), 0600)
+			os.WriteFile("./_examples/README.md", []byte(examplesReadmeContent), 0o600)
 		})
 
 		var newReadmeContent string
@@ -244,7 +244,7 @@ func main() {
 			pterm.Info.Println("Appending examples to root README.md")
 
 			pterm.Info.Println("Writing README")
-			err = os.WriteFile("./README.md", []byte(newReadmeContent), 0600)
+			err = os.WriteFile("./README.md", []byte(newReadmeContent), 0o600)
 			if err != nil {
 				log.Panic(err)
 			}
@@ -300,10 +300,11 @@ func generateSectionContent(section os.DirEntry) string {
 		sectionExamples += value.(string)
 	}
 
-	os.WriteFile("./_examples/"+section.Name()+"/README.md", []byte(sectionExamples), 0600)
+	os.WriteFile("./_examples/"+section.Name()+"/README.md", []byte(sectionExamples), 0o600)
 
 	return sectionExamples
 }
+
 func generateExampleContent(dir string, section os.DirEntry, example os.DirEntry) string {
 	var content string
 
@@ -346,7 +347,7 @@ func generateExampleContent(dir string, section os.DirEntry, example os.DirEntry
 
 	pterm.Info.Println("[" + dir + "] Generating README")
 	readmeString := generateExampleReadme(dir, exampleCode)
-	err = os.WriteFile("./_examples/"+dir+"/README.md", []byte(readmeString), 0600)
+	err = os.WriteFile("./_examples/"+dir+"/README.md", []byte(readmeString), 0o600)
 	if err != nil {
 		log.Panic(err)
 	}
@@ -381,7 +382,7 @@ func addSleepToEndOfAnimationData(dir, animationDataPath string) {
 	re := regexp.MustCompile(`\[\d[^,]*`).FindAllString(animationDataLastLine, 1)[0]
 	lastTime, _ := strconv.ParseFloat(strings.ReplaceAll(re, "[", ""), 64)
 	sleepString := `[` + strconv.FormatFloat(lastTime+5, 'f', 6, 64) + `, "o", "\nRestarting animation...\n"]`
-	animationDataFile, err := os.OpenFile(animationDataPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
+	animationDataFile, err := os.OpenFile(animationDataPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o600)
 	if err != nil {
 		log.Panicf("[%s] %s", dir, err.Error())
 	}
@@ -413,7 +414,7 @@ func overwriteSVGFont(dir, animationSvgPath string) {
 }`, 1))
 
 	os.Remove(animationSvgPath)
-	os.WriteFile(animationSvgPath, svgContent, 0600)
+	os.WriteFile(animationSvgPath, svgContent, 0o600)
 }
 
 func generateExampleReadme(dir string, exampleCode []byte) string {

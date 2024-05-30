@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pterm/pterm"
-	"github.com/pterm/pterm/putils"
+	"github.com/liu-hm19/pterm"
+	"github.com/liu-hm19/pterm/putils"
 )
 
 // Speed the demo up, by setting this flag.
@@ -17,9 +17,11 @@ import (
 // Example:
 //
 //	go run main.go -speedup
-var speedup = flag.Bool("speedup", false, "Speed up the demo")
-var skipIntro = flag.Bool("skip-intro", false, "Skips the intro")
-var second = time.Second
+var (
+	speedup   = flag.Bool("speedup", false, "Speed up the demo")
+	skipIntro = flag.Bool("skip-intro", false, "Skips the intro")
+	second    = time.Second
+)
 
 var pseudoProgramList = strings.Split("pseudo-excel pseudo-photoshop pseudo-chrome pseudo-outlook pseudo-explorer "+
 	"pseudo-git pseudo-vsc pseudo-intellij pseudo-minecraft pseudo-scoop pseudo-chocolatey", " ")

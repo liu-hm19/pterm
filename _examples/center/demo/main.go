@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/pterm/pterm"
-	"github.com/pterm/pterm/putils"
+	"github.com/liu-hm19/pterm"
+	"github.com/liu-hm19/pterm/putils"
 )
 
 func main() {

@@ -1,7 +1,6 @@
 package pterm
 
 import (
-	"fmt"
 	"strings"
 
 	"atomicgo.dev/cursor"
@@ -10,7 +9,7 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
 // DefaultInteractiveContinue is the default InteractiveContinue printer.
@@ -129,9 +128,6 @@ func (p InteractiveContinuePrinter) Show(text ...string) (string, error) {
 	p.TextStyle.Print(text[0] + " " + p.getSuffix() + p.Delimiter)
 
 	err := keyboard.Listen(func(keyInfo keys.Key) (stop bool, err error) {
-		if err != nil {
-			return false, fmt.Errorf("failed to get key: %w", err)
-		}
 		key := keyInfo.Code
 		char := keyInfo.String()
 

@@ -1,7 +1,7 @@
 package putils
 
 import (
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
 // TableDataFromCSV converts CSV data into pterm.TableData.

@@ -9,23 +9,21 @@ import (
 	"atomicgo.dev/keyboard"
 	"atomicgo.dev/keyboard/keys"
 	"github.com/lithammer/fuzzysearch/fuzzy"
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
-var (
-	// DefaultInteractiveSelect is the default InteractiveSelect printer.
-	DefaultInteractiveSelect = InteractiveSelectPrinter{
-		TextStyle:     &ThemeDefault.PrimaryStyle,
-		DefaultText:   "Please select an option",
-		Options:       []string{},
-		OptionStyle:   &ThemeDefault.DefaultText,
-		DefaultOption: "",
-		MaxHeight:     5,
-		Selector:      ">",
-		SelectorStyle: &ThemeDefault.SecondaryStyle,
-		Filter:        true,
-	}
-)
+// DefaultInteractiveSelect is the default InteractiveSelect printer.
+var DefaultInteractiveSelect = InteractiveSelectPrinter{
+	TextStyle:     &ThemeDefault.PrimaryStyle,
+	DefaultText:   "Please select an option",
+	Options:       []string{},
+	OptionStyle:   &ThemeDefault.DefaultText,
+	DefaultOption: "",
+	MaxHeight:     5,
+	Selector:      ">",
+	SelectorStyle: &ThemeDefault.SecondaryStyle,
+	Filter:        true,
+}
 
 // InteractiveSelectPrinter is a printer for interactive select menus.
 type InteractiveSelectPrinter struct {

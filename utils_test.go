@@ -8,12 +8,14 @@ import (
 	"testing"
 
 	"github.com/MarvinJWendt/testza"
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
-var printables = []interface{}{"Hello, World!", 1337, true, false, -1337, 'c', 1.5, "\\", "%s"}
-var terminalWidth = 80
-var terminalHeight = 60
+var (
+	printables     = []interface{}{"Hello, World!", 1337, true, false, -1337, 'c', 1.5, "\\", "%s"}
+	terminalWidth  = 80
+	terminalHeight = 60
+)
 
 func TestMain(m *testing.M) {
 	pterm.SetForcedTerminalSize(terminalWidth, terminalHeight)

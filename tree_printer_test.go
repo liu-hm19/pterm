@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/MarvinJWendt/testza"
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
 func TestTreePrinterNilPrint(t *testing.T) {
@@ -43,7 +43,8 @@ func TestTreePrinter_NewTreeFromLeveledList(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: 1, Text: "2.3"}}))
+		pterm.LeveledListItem{Level: 1, Text: "2.3"},
+	}))
 
 	testza.AssertEqual(t, pterm.NewTreeFromLeveledList(pterm.LeveledList{
 		pterm.LeveledListItem{Level: 0, Text: "0.0"},
@@ -54,7 +55,8 @@ func TestTreePrinter_NewTreeFromLeveledList(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: 1, Text: "2.3"}}), p2.Root)
+		pterm.LeveledListItem{Level: 1, Text: "2.3"},
+	}), p2.Root)
 	testza.AssertZero(t, p.Root)
 }
 
@@ -69,7 +71,8 @@ func TestTreePrinter_NewTreeFromLeveledListLevelInvalidIncrease(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: 10, Text: "2.3"}}))
+		pterm.LeveledListItem{Level: 10, Text: "2.3"},
+	}))
 
 	testza.AssertEqual(t, pterm.NewTreeFromLeveledList(pterm.LeveledList{
 		pterm.LeveledListItem{Level: 0, Text: "0.0"},
@@ -80,7 +83,8 @@ func TestTreePrinter_NewTreeFromLeveledListLevelInvalidIncrease(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: 3, Text: "2.3"}}), p2.Root)
+		pterm.LeveledListItem{Level: 3, Text: "2.3"},
+	}), p2.Root)
 	testza.AssertZero(t, p.Root)
 }
 
@@ -103,7 +107,8 @@ func TestTreePrinter_NewTreeFromLeveledListNegativeLevel(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: -5, Text: "2.3"}}))
+		pterm.LeveledListItem{Level: -5, Text: "2.3"},
+	}))
 
 	testza.AssertEqual(t, pterm.NewTreeFromLeveledList(pterm.LeveledList{
 		pterm.LeveledListItem{Level: 0, Text: "0.0"},
@@ -114,7 +119,8 @@ func TestTreePrinter_NewTreeFromLeveledListNegativeLevel(t *testing.T) {
 		pterm.LeveledListItem{Level: 1, Text: "2.1"},
 		pterm.LeveledListItem{Level: 1, Text: "2.2"},
 		pterm.LeveledListItem{Level: 2, Text: "2.2.1"},
-		pterm.LeveledListItem{Level: 0, Text: "2.3"}}), p2.Root)
+		pterm.LeveledListItem{Level: 0, Text: "2.3"},
+	}), p2.Root)
 	testza.AssertZero(t, p.Root)
 }
 

@@ -9,26 +9,24 @@ import (
 	"atomicgo.dev/keyboard/keys"
 	"github.com/lithammer/fuzzysearch/fuzzy"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
-var (
-	// DefaultInteractiveMultiselect is the default InteractiveMultiselect printer.
-	DefaultInteractiveMultiselect = InteractiveMultiselectPrinter{
-		TextStyle:      &ThemeDefault.PrimaryStyle,
-		DefaultText:    "Please select your options",
-		Options:        []string{},
-		OptionStyle:    &ThemeDefault.DefaultText,
-		DefaultOptions: []string{},
-		MaxHeight:      5,
-		Selector:       ">",
-		SelectorStyle:  &ThemeDefault.SecondaryStyle,
-		Filter:         true,
-		KeySelect:      keys.Enter,
-		KeyConfirm:     keys.Tab,
-		Checkmark:      &ThemeDefault.Checkmark,
-	}
-)
+// DefaultInteractiveMultiselect is the default InteractiveMultiselect printer.
+var DefaultInteractiveMultiselect = InteractiveMultiselectPrinter{
+	TextStyle:      &ThemeDefault.PrimaryStyle,
+	DefaultText:    "Please select your options",
+	Options:        []string{},
+	OptionStyle:    &ThemeDefault.DefaultText,
+	DefaultOptions: []string{},
+	MaxHeight:      5,
+	Selector:       ">",
+	SelectorStyle:  &ThemeDefault.SecondaryStyle,
+	Filter:         true,
+	KeySelect:      keys.Enter,
+	KeyConfirm:     keys.Tab,
+	Checkmark:      &ThemeDefault.Checkmark,
+}
 
 // InteractiveMultiselectPrinter is a printer for interactive multiselect menus.
 type InteractiveMultiselectPrinter struct {

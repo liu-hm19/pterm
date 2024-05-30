@@ -6,13 +6,11 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
-var (
-	// GrayBoxStyle wraps text in a gray box.
-	GrayBoxStyle = NewStyle(BgGray, FgLightWhite)
-)
+// GrayBoxStyle wraps text in a gray box.
+var GrayBoxStyle = NewStyle(BgGray, FgLightWhite)
 
 var (
 	// Info returns a PrefixPrinter, which can be used to print text with an "info" Prefix.

@@ -2,7 +2,6 @@ package pterm
 
 import (
 	"context"
-
 	"log/slog"
 )
 
@@ -50,7 +49,7 @@ func (s *SlogHandler) Handle(ctx context.Context, record slog.Record) error {
 
 	logger := s.logger
 
-	// Must be done here, see https://github.com/pterm/pterm/issues/608#issuecomment-1876001650
+	// Must be done here, see https://github.com/liu-hm19/pterm/issues/608#issuecomment-1876001650
 	if logger.CallerOffset == 0 {
 		logger = logger.WithCallerOffset(3)
 	}

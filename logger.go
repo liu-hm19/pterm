@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
 type LogLevel int

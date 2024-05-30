@@ -7,18 +7,16 @@ import (
 
 	"github.com/mattn/go-runewidth"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
-var (
-	// DefaultHeader returns the printer for a default header text.
-	// Defaults to LightWhite, Bold Text and a Gray DefaultHeader background.
-	DefaultHeader = HeaderPrinter{
-		TextStyle:       &ThemeDefault.HeaderTextStyle,
-		BackgroundStyle: &ThemeDefault.HeaderBackgroundStyle,
-		Margin:          5,
-	}
-)
+// DefaultHeader returns the printer for a default header text.
+// Defaults to LightWhite, Bold Text and a Gray DefaultHeader background.
+var DefaultHeader = HeaderPrinter{
+	TextStyle:       &ThemeDefault.HeaderTextStyle,
+	BackgroundStyle: &ThemeDefault.HeaderBackgroundStyle,
+	Margin:          5,
+}
 
 // HeaderPrinter contains the data used to craft a header.
 // A header is printed as a big box with text in it.

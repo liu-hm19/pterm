@@ -7,7 +7,7 @@ import (
 
 	"github.com/mattn/go-runewidth"
 
-	"github.com/pterm/pterm/internal"
+	"github.com/liu-hm19/pterm/internal"
 )
 
 // BarChartPrinter is used to print bar charts.
@@ -28,17 +28,15 @@ type BarChartPrinter struct {
 	HorizontalBarCharacter string
 }
 
-var (
-	// DefaultBarChart is the default BarChartPrinter.
-	DefaultBarChart = BarChartPrinter{
-		Horizontal:             false,
-		VerticalBarCharacter:   "██",
-		HorizontalBarCharacter: "█",
-		// keep in sync with RecalculateTerminalSize()
-		Height: GetTerminalHeight() * 2 / 3,
-		Width:  GetTerminalWidth() * 2 / 3,
-	}
-)
+// DefaultBarChart is the default BarChartPrinter.
+var DefaultBarChart = BarChartPrinter{
+	Horizontal:             false,
+	VerticalBarCharacter:   "██",
+	HorizontalBarCharacter: "█",
+	// keep in sync with RecalculateTerminalSize()
+	Height: GetTerminalHeight() * 2 / 3,
+	Width:  GetTerminalWidth() * 2 / 3,
+}
 
 // WithBars returns a new BarChartPrinter with a specific option.
 func (p BarChartPrinter) WithBars(bars Bars) *BarChartPrinter {

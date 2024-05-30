@@ -9,7 +9,7 @@ import (
 
 	"github.com/MarvinJWendt/testza"
 
-	"github.com/pterm/pterm"
+	"github.com/liu-hm19/pterm"
 )
 
 func TestNewRGB(t *testing.T) {
@@ -307,8 +307,11 @@ func TestRGB_PrintIfError_WithoutErrorf(t *testing.T) {
 }
 
 func TestRGBStyle_PrintOnError(t *testing.T) {
-	RGBs := []pterm.RGBStyle{{Foreground: pterm.RGB{R: 10, G: 10, B: 10}}, {Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
-		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}}}
+	RGBs := []pterm.RGBStyle{
+		{Foreground: pterm.RGB{R: 10, G: 10, B: 10}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}},
+	}
 	for _, rgb := range RGBs {
 		t.Run("PrintOnError", func(t *testing.T) {
 			result := captureStdout(func(w io.Writer) {
@@ -320,8 +323,11 @@ func TestRGBStyle_PrintOnError(t *testing.T) {
 }
 
 func TestRGBStyle_PrintIfError_WithoutError(t *testing.T) {
-	RGBs := []pterm.RGBStyle{{Foreground: pterm.RGB{R: 10, G: 10, B: 10}}, {Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
-		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}}}
+	RGBs := []pterm.RGBStyle{
+		{Foreground: pterm.RGB{R: 10, G: 10, B: 10}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}},
+	}
 	for _, rgb := range RGBs {
 		t.Run("PrintIfError_WithoutError", func(t *testing.T) {
 			result := captureStdout(func(w io.Writer) {
@@ -333,8 +339,11 @@ func TestRGBStyle_PrintIfError_WithoutError(t *testing.T) {
 }
 
 func TestRGBStyle_PrintOnErrorf(t *testing.T) {
-	RGBs := []pterm.RGBStyle{{Foreground: pterm.RGB{R: 10, G: 10, B: 10}}, {Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
-		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}}}
+	RGBs := []pterm.RGBStyle{
+		{Foreground: pterm.RGB{R: 10, G: 10, B: 10}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}},
+	}
 	for _, rgb := range RGBs {
 		t.Run("PrintOnErrorf", func(t *testing.T) {
 			result := captureStdout(func(w io.Writer) {
@@ -346,8 +355,11 @@ func TestRGBStyle_PrintOnErrorf(t *testing.T) {
 }
 
 func TestRGBStyle_PrintIfError_WithoutErrorf(t *testing.T) {
-	RGBs := []pterm.RGBStyle{{Foreground: pterm.RGB{R: 10, G: 10, B: 10}}, {Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
-		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}}}
+	RGBs := []pterm.RGBStyle{
+		{Foreground: pterm.RGB{R: 10, G: 10, B: 10}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}},
+	}
 	for _, rgb := range RGBs {
 		t.Run("PrintIfError_WithoutErrorf", func(t *testing.T) {
 			result := captureStdout(func(w io.Writer) {
@@ -359,8 +371,11 @@ func TestRGBStyle_PrintIfError_WithoutErrorf(t *testing.T) {
 }
 
 func TestRGBStyle_NewRGBStyle(t *testing.T) {
-	RGBs := []pterm.RGBStyle{{Foreground: pterm.RGB{R: 10, G: 10, B: 10}}, {Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
-		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}}}
+	RGBs := []pterm.RGBStyle{
+		{Foreground: pterm.RGB{R: 10, G: 10, B: 10}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold}},
+		{Foreground: pterm.RGB{R: 0, G: 0, B: 255}, Background: pterm.RGB{R: 255, G: 0, B: 255}, Options: []pterm.Color{pterm.Bold, pterm.Italic}},
+	}
 	for _, rgb := range RGBs {
 		t.Run("NewRGBStyle", func(t *testing.T) {
 			result := pterm.NewRGBStyle(rgb.Foreground, rgb.Background)
